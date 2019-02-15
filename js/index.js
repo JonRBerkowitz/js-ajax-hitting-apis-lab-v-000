@@ -15,6 +15,10 @@ function showRepositories() {
   document.getElementById('repositories').innerHTML = repoList;
 }
 
-function getCommits() {
-
+function getCommits(e) {
+  const name = e.dataset.repo;
+  const req = new XMLHttpRequest();
+  req.addEventListener('load', showCommits);
+  req.open('GET', "https://api.github.com/users/" + user + "/repos");
+  req.send();
 }
