@@ -20,7 +20,7 @@ function getCommits(e) {
   const name = e.dataset.repo;
   const user = e.dataset.user;
   const req = new XMLHttpRequest();
-  req.addEventListener('load', showCommits);
+  req.addEventListener('load', displayCommits);
   req.open('GET', "https://api.github.com/repos/" + user + "/" + name + "/commits");
   req.send();
 }
