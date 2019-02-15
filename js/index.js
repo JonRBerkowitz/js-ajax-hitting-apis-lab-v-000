@@ -1,7 +1,6 @@
 // your code here
 const rootURL = 'https://api.github.com';
 
-
 function getRepositories() {
   const req = new XMLHttpRequest();
   let user = document.getElementById("username").value;
@@ -31,13 +30,14 @@ function displayRepositories() {
   document.getElementById('repositories').innerHTML = repoList;
 }
 
-function getCommits(e) {
-  const name = e.dataset.repo;
-  const user = e.dataset.user;
-  const req = new XMLHttpRequest();
-  req.addEventListener('load', displayCommits);
-  req.open('GET', "https://api.github.com/repos/" + user + "/" + name + "/commits");
-  req.send();
+function getCommits(el) {
+  const repoName = el.dataset.repository;
+  const uri =
+    rootURL + '/repos/' + el.dataset.username + '/' + repoName + '/commits';
+  const xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', displayCommits);
+  xhr.open('GET', uri);
+  xhr.send();
 }
 
 function displayCommits() {
