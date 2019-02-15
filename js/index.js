@@ -13,8 +13,8 @@ function displayRepositories() {
       '<ul>' +
       repos
         .map(repo => {
-          const dataUsername = 'data-username="' + repo.owner.login + '"';
-          const dataRepoName = 'data-repository="' + repo.name + '"';
+          const dataUsername = 'data-user="' + repo.owner.login + '"';
+          const dataRepoName = 'data-repo="' + repo.name + '"';
           return `
             <li>
               <h2>${repo.name}</h2>
