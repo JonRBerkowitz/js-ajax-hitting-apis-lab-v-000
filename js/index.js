@@ -14,7 +14,8 @@ function showRepositories() {
   r.name + '" data-user="' + r.owner.login +
   '" onclick="getCommits(this)">Get Commits</a></li>').join('')}`;
   document.getElementById('repositories').innerHTML = repoList;
-  console.log(r.owner.login);
+  console.log(repos.owner.login);
+
 }
 
 function getCommits(e) {
